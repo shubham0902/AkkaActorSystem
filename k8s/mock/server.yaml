@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+  namespace: attr-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+        - name: nodongo
+          image: shubham0902/shubham-docker:node-server
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: taskr-logs
+              mountPath: /Users/shubhamjain/Downloads
+      volumes:
+        - name: taskr-logs
+          hostPath:
+            path: /Users/shubhamjain/Downloads
+            type: DirectoryOrCreate
+      imagePullSecrets:
+        - name: regcred
