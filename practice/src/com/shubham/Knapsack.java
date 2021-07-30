@@ -24,12 +24,16 @@ public class Knapsack {
             return 0;
         }
 
+        if(memo[length][W] != -1){
+            return memo[length][W];
+        }
+
         if (w[length - 1] <= W) {
-            memo[length][W] = Math.max(ks(w, v, W, length - 1), ks(w, v, W-w[length], length - 1));
+            memo[length][W] = Math.max(ks(w, v, W, length - 1), v[length - 1] + ks(w, v, W - w[length - 1], length - 1));
         } else {
             memo[length][W] = ks(w, v, W, length - 1);
         }
-
+        return memo[length][W];
     }
 
 }
