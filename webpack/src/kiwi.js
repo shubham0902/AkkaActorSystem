@@ -1,9 +1,9 @@
 import KiwiImage from "./components/kiwi-image/kiwi-image";
 import Heading from "./components/heading/heading";
-import _ from "lodash";
+import React from "react";
 
 const c = new Heading();
-c.render(_.upperFirst("kiwi"));
+c.render("kiwi");
 
 const d = new KiwiImage();
 d.render("hello world");

@@ -12,7 +12,13 @@ module.exports = {
     publicPath: "",
   },
   mode: "production",
-  optimization: { splitChunks: { chunks: "all" } },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      minSize: 1000,
+      automaticNameDelimiter: "_",
+    },
+  },
   module: {
     rules: [
       {
