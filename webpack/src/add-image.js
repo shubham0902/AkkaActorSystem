@@ -6,7 +6,7 @@ function addImage() {
   img.width = 300;
   img.src = kiwi;
   const body = document.querySelector("body");
-  body.appendChild(img);
+  // body.appendChild(img);
 }
 
 export default addImage;
